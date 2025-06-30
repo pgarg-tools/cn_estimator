@@ -1,0 +1,13 @@
+# Ignore data files
+data/
+*.bam
+*.cram
+*.fasta
+*.fasta.fai
+
+intialize.sh
+
+# Ignore R temporary files
+.Rhistory
+.RData
+resources/bin_1000/chr_1000_gc_index.bed
