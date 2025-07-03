@@ -50,7 +50,7 @@ Calculate read depth per bin for each sample using Mosdepth.
 
 ```bash
 ./scripts/calculate_read_depth.sh resources/bin_${bin_size}/chr_${bin_size}_gc_index.bed ${sample}.cram data/processed/read_depth/
-# Output: data/processed/read_depth/${sample}.regions.bed.gz.fst
+# Output: data/processed/read_depth/${sample}.regions.bed.fst
 ```
 
 This step generates per-bin read depth in compressed `.fst` format.
@@ -62,8 +62,8 @@ This step generates per-bin read depth in compressed `.fst` format.
 Estimate GC correction factors for normalization.
 
 ```bash
-Rscript get_GC_correction_factor.r \
-    --input data/processed/read_depth/${sample}.regions.bed.gz.fst \
+Rscript ./scripts/get_GC_correction_factor.r \
+    --input data/processed/read_depth/${sample}.regions.bed.fst \
     --key_to_coord resources/bin_${bin_size}/chr_${bin_size}_gc_index.bed \
     --regions resources/bin_${bin_size}/chrAll.bins.noSegDup.noRepMask.noRepeat.${bin_size}bp.bed.gz \
     --output_folder data/processed/GC_correction_factor/
@@ -90,7 +90,7 @@ bedtools makewindows -w 5000 -b resources/regions_of_interest/regions_of_interes
 #### 4.2: Run CNV Estimation
 
 ```bash
-Rscript calculate_normalized_cn.r \
+Rscript ./scripts/calculate_normalized_cn.r \
     --input data/processed/read_depth/${sample}.regions.bed.gz.fst \
     --key_to_coord resources/bin_${bin_size}/chr_${bin_size}_gc_index.bed \
     --gc_file data/processed/GC_correction_factor/${sample}.GCbins.bed.gz \
