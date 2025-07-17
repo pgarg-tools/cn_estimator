@@ -104,6 +104,24 @@ Rscript ./scripts/calculate_normalized_cn.r \
 The final output is a table containing region ID, sample name, and normalized copy number estimates (rounded to 4 decimal places).
 
 ---
+### Step 5: Visualize Copy Number Across a Genomic Region
+
+Generate a copy number plot for a specific genomic region across multiple samples.
+```bash
+ls data/processed/copy_number/*cn.txt.gz > filelist
+Rscript ./scripts/plotting_scripts/plot_copy_number_region.R -f filelist -r "chr15:43500000-43800000" -o data/plots/CN_genomic_plot_chr15_43500000_43800000.png
+# Output data/plots/CN_genomic_plot_chr15_43500000_43800000.png
+```
+
+**Inputs:**
+- `filelist`: A text file with paths to `*.cn.txt.gz` files (one per line)
+- `-r`: Genomic region in `"chr:start-end"` format
+- `-o`: Output path for the plot (PNG)
+
+**Output:**
+- A PNG image showing normalized copy number values across the specified region for all samples
+
+---
 
 ## 📬 Contact
 
