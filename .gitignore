@@ -19,5 +19,5 @@ resources/bin_100/
 scripts/for_adsp/
 resources/regions_of_interest/Regions_VNTR_invar_multicopy_genes_100bp_window.txt.gz
 old*
-./config/
-./conf/
+config/
+conf/
