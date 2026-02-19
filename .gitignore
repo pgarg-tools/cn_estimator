@@ -8,7 +8,7 @@ data/
 *.fasta.fai
 test/
 test2/
-
+bsub*
 intialize.sh
 
 test/
