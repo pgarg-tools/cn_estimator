@@ -1,7 +1,7 @@
 
 # Copy Number Estimator
 
-**A lightweight and scalable pipeline for estimating copy number variation (CNV) in targeted genomic regions**
+**A lightweight and scalable pipeline for estimating copy number variation (CNV) using read depth data from NGS**
 
 This pipeline segments the genome into fixed-size bins, computes read depth per bin from CRAM files, applies GC bias normalization, and estimates copy number across user-defined regions of interest. It is optimized for cloud-scale execution—processing each sample in under 5 minutes at a cost of less than $0.01.
 
